@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasePawn : MonoBehaviour, IBaseEntity {
-  /* TODO remove test */
-  int t;
 
   void Start() {
     /* camera component */
     Camera m_camera = gameObject.AddComponent<Camera>();
-
-    /* TODO remove test */
-    t = 0;
   }
 
   void Update() {
-    /* TODO remove test */
-    Debug.Log("time = " + t);
-    t = t + 1;
+    float mouseX = Input.GetAxis(Globals.constants.MOUSE_X);
+    float mouseY = Input.GetAxis(Globals.constants.MOUSE_Y);
+
+    if (mouseX > 0) {
+      Debug.Log("+x");
+    } else if (mouseX < 0) {
+      Debug.Log("-x");
+    }
+
+    if (mouseY > 0) {
+      Debug.Log("+y");
+    } else if (mouseY < 0) {
+      Debug.Log("-y");
+    }
   }
 }

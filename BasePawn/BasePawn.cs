@@ -8,7 +8,7 @@ public class BasePawn : MonoBehaviour, IBaseEntity {
 
   void Start() {
     /* camera component */
-    Camera camera = gameObject.AddComponent<Camera>();
+    Camera m_camera = gameObject.AddComponent<Camera>();
 
     /* TODO remove test */
     t = 0;

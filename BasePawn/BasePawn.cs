@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * A BasePawn is a BaseEntity controlled by the player,
+ * or in most cases, the VR headset and motion
+ * controllers.
+ */
+
 public class BasePawn : MonoBehaviour, IBaseEntity {
   public float mouseSensitivity = 5.0f;
 
@@ -36,8 +42,8 @@ public class BasePawn : MonoBehaviour, IBaseEntity {
    */
 
   void updateCameraOrientation() {
-    float mouseX = Input.GetAxisRaw(Globals.constants.MOUSE_X);
-    float mouseY = Input.GetAxisRaw(Globals.constants.MOUSE_Y);
+    float mouseX = Input.GetAxisRaw(Constants.MOUSE_X);
+    float mouseY = Input.GetAxisRaw(Constants.MOUSE_Y);
 
     float rotXAxis = transform.eulerAngles.x;
     float rotYAxis = transform.eulerAngles.y;

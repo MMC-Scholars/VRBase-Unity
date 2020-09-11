@@ -2,21 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
- * A BasePawn is a BaseEntity controlled by the player,
- * or in most cases, the VR headset and motion
- * controllers.
- */
-
-public class BasePawn : MonoBehaviour, IBaseEntity {
+public class BasePawn : MonoBehaviour, IBasePawn {
   public float mouseSensitivity = 5.0f;
 
-  /**
-   * Unity method
-   * Called on game start
-   */
-
-  void Start() {
+  public void Start() {
     // lock mouse cursor to the window
     Cursor.lockState = CursorLockMode.Locked;
 
@@ -24,11 +13,7 @@ public class BasePawn : MonoBehaviour, IBaseEntity {
     Camera m_camera = gameObject.AddComponent<Camera>();
   }
 
-  /**
-   * Close application if requested
-   */
-
-  void checkQuit() {
+  public void checkQuit() {
     bool quitScenario =
         Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Q);
 
@@ -40,11 +25,7 @@ public class BasePawn : MonoBehaviour, IBaseEntity {
     }
   }
 
-  /**
-   * Updates the orientation of the camera
-   */
-
-  void updateCameraOrientation() {
+  public void updateCameraOrientation() {
     float mouseX = Input.GetAxisRaw(Constants.MOUSE_X);
     float mouseY = Input.GetAxisRaw(Constants.MOUSE_Y);
 
@@ -67,12 +48,7 @@ public class BasePawn : MonoBehaviour, IBaseEntity {
     transform.eulerAngles = new Vector3(rotXAxis, rotYAxis, 0);
   }
 
-  /**
-   * Unity method
-   * Called on each update frame
-   */
-
-  void Update() {
+  public void Update() {
     // check quit scenario
     checkQuit();
 

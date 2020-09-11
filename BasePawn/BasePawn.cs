@@ -29,7 +29,10 @@ public class BasePawn : MonoBehaviour, IBaseEntity {
    */
 
   void checkQuit() {
-    if (Input.GetKeyDown(KeyCode.Escape)) {
+    bool quitScenario =
+        Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Q);
+
+    if (quitScenario) {
       // packaged project
       Application.Quit();
       // editor development

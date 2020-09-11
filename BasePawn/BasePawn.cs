@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasePawn : MonoBehaviour, IBaseEntity {
-  const float mouseSensitivity = 1.0f;
+  public float mouseSensitivity = 5.0f;
 
   /**
    * Unity method
@@ -11,30 +11,51 @@ public class BasePawn : MonoBehaviour, IBaseEntity {
    */
 
   void Start() {
+    // lock mouse cursor to the window
+    Cursor.lockState = CursorLockMode.Locked;
+
     // camera component
     Camera m_camera = gameObject.AddComponent<Camera>();
   }
 
   /**
-   * updates the orientation of the camera
+   * Close application if requested
+   */
+
+  void checkQuit() {
+    if (Input.GetKeyDown(KeyCode.Escape)) {
+      // packaged project
+      Application.Quit();
+      // editor development
+      UnityEditor.EditorApplication.isPlaying = false;
+    }
+  }
+
+  /**
+   * Updates the orientation of the camera
    */
 
   void updateCameraOrientation() {
-    Vector3 euler = transform.rotation.eulerAngles;
-    float X = euler.x;
-    float Y = euler.y;
-
     float mouseX = Input.GetAxisRaw(Globals.constants.MOUSE_X);
     float mouseY = Input.GetAxisRaw(Globals.constants.MOUSE_Y);
 
-    /* Debug.Log($"{mouseX}, {mouseY}"); */
+    float rotXAxis = transform.eulerAngles.x;
+    float rotYAxis = transform.eulerAngles.y;
 
-    X += mouseX * mouseSensitivity * Time.deltaTime;
-    Y -= mouseY * mouseSensitivity * Time.deltaTime;
+    // translate x-axis rotation to a [-90, 90] range
+    if (rotXAxis < 180)
+      rotXAxis *= -1;
+    else if (rotXAxis > 180)
+      rotXAxis = 360 - rotXAxis;
 
-    /* transform.Rotate(0.0f, mouseX, 0.0f); */
-    transform.rotation = Quaternion.Euler(Y, X, 0.0f);
-    Debug.Log($"{transform.rotation}");
+    rotXAxis += mouseY * mouseSensitivity;
+    rotYAxis += mouseX * mouseSensitivity;
+
+    // x-axis transform since x axis is "upside down"
+    rotXAxis = Mathf.Clamp(rotXAxis, -90, 90) * -1;
+
+    // rotate the camera
+    transform.eulerAngles = new Vector3(rotXAxis, rotYAxis, 0);
   }
 
   /**
@@ -43,11 +64,8 @@ public class BasePawn : MonoBehaviour, IBaseEntity {
    */
 
   void Update() {
-    // quit scenario
-    if (Input.GetKeyDown(KeyCode.Escape)) {
-      Application.Quit();
-      UnityEditor.EditorApplication.isPlaying = false;
-    }
+    // check quit scenario
+    checkQuit();
 
     // update camera rotation
     updateCameraOrientation();

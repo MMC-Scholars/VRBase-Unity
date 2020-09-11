@@ -9,8 +9,8 @@ public class Globals {
   // or
   // Globals.myClass.method()
 
-  public class constants {
-    public static string MOUSE_X = "Mouse X";
-    public static string MOUSE_Y = "Mouse Y";
+  public static class constants {
+    public const string MOUSE_X = "Mouse X";
+    public const string MOUSE_Y = "Mouse Y";
   }
 }

@@ -8,22 +8,19 @@ using UnityEngine;
  */
 
 public class BaseController : MonoBehaviour, IBaseEntity {
-    public int t;
+    Bitfield m_bfButtons;
 
     /**
      * Unity method
      * Called on game start
      */
 
-    void Start() { t = 0; }
+    void Start() { m_bfButtons = new Bitfield(); }
 
     /**
      * Unity method
      * Called on each update frame
      */
 
-    void Update() {
-        Debug.Log("t = " + t);
-        t = t + 1;
-    }
+    void Update() {}
 }

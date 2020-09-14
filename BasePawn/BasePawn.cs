@@ -9,74 +9,76 @@ using UnityEngine;
  */
 
 public class BasePawn : MonoBehaviour, IBaseEntity {
-  public float mouseSensitivity = 5.0f;
+    public float mouseSensitivity = 5.0f;
 
-  /**
-   * Unity method
-   * Called on game start
-   */
+    /**
+     * Unity method
+     * Called on game start
+     */
 
-  void Start() {
-    // lock mouse cursor to the window
-    Cursor.lockState = CursorLockMode.Locked;
+    void Start() {
+        // lock mouse cursor to the window
+        Cursor.lockState = CursorLockMode.Locked;
 
-    // camera component
-    Camera m_camera = gameObject.AddComponent<Camera>();
-  }
-
-  /**
-   * Close application if requested
-   */
-
-  void checkQuit() {
-    bool quitScenario =
-        Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Q);
-
-    if (quitScenario) {
-      // packaged project
-      Application.Quit();
-      // editor development
-      UnityEditor.EditorApplication.isPlaying = false;
+        // camera component
+        Camera         m_camera      = gameObject.AddComponent<Camera>();
+        BaseController m_lController = gameObject.AddComponent<BaseController>();
+        BaseController m_rController = gameObject.AddComponent<BaseController>();
     }
-  }
 
-  /**
-   * Updates the orientation of the camera
-   */
+    /**
+     * Close application if requested
+     */
 
-  void updateCameraOrientation() {
-    float mouseX = Input.GetAxisRaw(Constants.MOUSE_X);
-    float mouseY = Input.GetAxisRaw(Constants.MOUSE_Y);
+    void checkQuit() {
+        bool quitScenario =
+            Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Q);
 
-    float rotXAxis = transform.eulerAngles.x;
-    float rotYAxis = transform.eulerAngles.y;
+        if (quitScenario) {
+            // packaged project
+            Application.Quit();
+            // editor development
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+    }
 
-    // translate x-axis rotation to a [-90, 90] range
-    if (rotXAxis < 180)
-      rotXAxis *= -1;
-    else if (rotXAxis > 180)
-      rotXAxis = 360 - rotXAxis;
+    /**
+     * Updates the orientation of the camera
+     */
 
-    rotXAxis += mouseY * mouseSensitivity;
-    rotYAxis += mouseX * mouseSensitivity;
+    void updateCameraOrientation() {
+        float mouseX = Input.GetAxisRaw(Constants.MOUSE_X);
+        float mouseY = Input.GetAxisRaw(Constants.MOUSE_Y);
 
-    // x-axis transform since x axis is "upside down"
-    rotXAxis = Mathf.Clamp(rotXAxis, -90, 90) * -1;
+        float rotXAxis = transform.eulerAngles.x;
+        float rotYAxis = transform.eulerAngles.y;
 
-    // rotate the camera
-    transform.eulerAngles = new Vector3(rotXAxis, rotYAxis, 0);
-  }
+        // translate x-axis rotation to a [-90, 90] range
+        if (rotXAxis < 180)
+            rotXAxis *= -1;
+        else if (rotXAxis > 180)
+            rotXAxis = 360 - rotXAxis;
 
-  /**
-   * Unity method
-   * Called on each update frame
-   */
+        rotXAxis += mouseY * mouseSensitivity;
+        rotYAxis += mouseX * mouseSensitivity;
 
-  void Update() {
-    // check quit scenario
-    checkQuit();
+        // x-axis transform since x axis is "upside down"
+        rotXAxis = Mathf.Clamp(rotXAxis, -90, 90) * -1;
 
-    // update camera rotation
-    updateCameraOrientation();
-  }
+        // rotate the camera
+        transform.eulerAngles = new Vector3(rotXAxis, rotYAxis, 0);
+    }
+
+    /**
+     * Unity method
+     * Called on each update frame
+     */
+
+    void Update() {
+        // check quit scenario
+        checkQuit();
+
+        // update camera rotation
+        updateCameraOrientation();
+    }
 }

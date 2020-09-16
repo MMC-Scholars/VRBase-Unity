@@ -8,19 +8,23 @@ using UnityEngine;
  */
 
 public class BaseController : MonoBehaviour, IBaseEntity {
-    Bitfield m_bfButtons;
 
     /**
      * Unity method
      * Called on game start
      */
 
-    void Start() { m_bfButtons = new Bitfield(); }
+    void Start() {}
 
     /**
      * Unity method
      * Called on each update frame
      */
 
-    void Update() {}
+    void Update() {
+        if (BaseInput.isTrigger()) { Debug.Log("Trigger pressed"); }
+        if (BaseInput.isGrip()) { Debug.Log("Grip pressed"); }
+        if (BaseInput.isPrimary()) { Debug.Log("Primary pressed"); }
+        if (BaseInput.isSecondary()) { Debug.Log("Secondary pressed"); }
+    }
 }

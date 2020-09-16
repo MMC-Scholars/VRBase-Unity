@@ -28,4 +28,10 @@ public class Bitfield {
      * Removes a bitmask [mask] from the bitfield.
      */
     public void remove(ulong mask) { m_bf &= ~mask; }
+
+    /**
+     * Returns the raw bitfield representation as an int. Should
+     * only be used for debugging purposes.
+     */
+    public int toInt() { return (int) m_bf; }
 }

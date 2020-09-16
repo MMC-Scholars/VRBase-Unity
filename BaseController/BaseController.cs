@@ -7,7 +7,7 @@ using UnityEngine;
  * Two controllers are possessed by BasePawn to represent hands.
  */
 
-public class BaseController : MonoBehaviour, IBaseEntity {
+public class BaseController : ABaseEntity {
 
     /**
      * Unity method

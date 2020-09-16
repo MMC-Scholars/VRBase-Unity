@@ -8,7 +8,7 @@ using UnityEngine;
  * controllers.
  */
 
-public class BasePawn : MonoBehaviour, IBaseEntity {
+public class BasePawn : ABaseEntity {
     public float mouseSensitivity = 5.0f;
 
     /**

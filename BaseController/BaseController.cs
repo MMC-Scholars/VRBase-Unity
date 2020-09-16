@@ -8,6 +8,15 @@ using UnityEngine;
  */
 
 public class BaseController : ABaseEntity {
+    // arbitrary assignment - this cannot be null
+    private string m_sHand = Constants.LEFT;
+
+    /**
+     * Determines which hand (left or right) this controller represents.
+     */
+
+    public string getHand() { return m_sHand; }
+    public void   setHand(string hand) { m_sHand = hand; }
 
     /**
      * Unity method
@@ -21,5 +30,8 @@ public class BaseController : ABaseEntity {
      * Called on each update frame
      */
 
-    void Update() {}
+    void Update() {
+        /* TODO */
+        /* Debug.Log($"hand is {m_sHand}"); */
+    }
 }

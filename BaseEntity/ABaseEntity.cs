@@ -7,6 +7,6 @@
  */
 
 public abstract class ABaseEntity : MonoBehaviour {
-    void OnUsed() {}
-    void OffUsed() {}
+    public void OnUsed(ABaseEntity user) {}
+    public void OffUsed(ABaseEntity user) {}
 }

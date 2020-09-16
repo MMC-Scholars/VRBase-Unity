@@ -21,10 +21,5 @@ public class BaseController : ABaseEntity {
      * Called on each update frame
      */
 
-    void Update() {
-        if (BaseInput.isTrigger()) { Debug.Log("Trigger pressed"); }
-        if (BaseInput.isGrip()) { Debug.Log("Grip pressed"); }
-        if (BaseInput.isPrimary()) { Debug.Log("Primary pressed"); }
-        if (BaseInput.isSecondary()) { Debug.Log("Secondary pressed"); }
-    }
+    void Update() {}
 }

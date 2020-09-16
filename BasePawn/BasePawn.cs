@@ -31,10 +31,7 @@ public class BasePawn : ABaseEntity {
      */
 
     void checkQuit() {
-        bool quitScenario =
-            Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Q);
-
-        if (quitScenario) {
+        if (BaseInput.isQuit()) {
             // packaged project
             Application.Quit();
             // editor development
@@ -80,5 +77,11 @@ public class BasePawn : ABaseEntity {
 
         // update camera rotation
         updateCameraOrientation();
+
+        // input
+        if (BaseInput.isTrigger()) { Debug.Log("Trigger pressed"); }
+        if (BaseInput.isGrip()) { Debug.Log("Grip pressed"); }
+        if (BaseInput.isPrimary()) { Debug.Log("Primary pressed"); }
+        if (BaseInput.isSecondary()) { Debug.Log("Secondary pressed"); }
     }
 }

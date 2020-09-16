@@ -16,37 +16,121 @@ using UnityEngine;
  */
 
 public static class BaseInput {
-    public static bool isTrigger() {
+
+    /*
+     * Trigger
+     */
+
+    public static bool isLTrigger() {
         /* TODO motion controller input */
-        return Input.GetKey(KeyCode.T) || Input.GetMouseButton(0);
+        return false;
+    }
+
+    public static bool isRTrigger() {
+        /* TODO motion controller input */
+        return false;
+    }
+
+    public static bool isTrigger() {
+        return Input.GetKey(KeyCode.T) || Input.GetMouseButton(0) || isLTrigger() ||
+               isRTrigger();
+    }
+
+    /*
+     * Grip
+     */
+
+    public static bool isLGrip() {
+        /* TODO motion controller input */
+        return false;
+    }
+
+    public static bool isRGrip() {
+        /* TODO motion controller input */
+        return false;
     }
 
     public static bool isGrip() {
-        /* TODO motion controller input */
-        return Input.GetKey(KeyCode.G);
+        return Input.GetKey(KeyCode.G) || isLGrip() || isRGrip();
     }
 
-    public static bool isA() {
+    /*
+     * A
+     */
+
+    public static bool isLA() {
         /* TODO motion controller input */
-        return Input.GetKey(KeyCode.A);
+        return false;
     }
 
-    public static bool isB() {
+    public static bool isRA() {
         /* TODO motion controller input */
-        return Input.GetKey(KeyCode.B);
+        return false;
     }
 
-    public static bool isX() {
+    public static bool isA() { return Input.GetKey(KeyCode.A) || isLA() || isRA(); }
+
+    /*
+     * B
+     */
+
+    public static bool isLB() {
         /* TODO motion controller input */
-        return Input.GetKey(KeyCode.X);
+        return false;
     }
 
-    public static bool isY() {
+    public static bool isRB() {
         /* TODO motion controller input */
-        return Input.GetKey(KeyCode.Y);
+        return false;
     }
+
+    public static bool isB() { return Input.GetKey(KeyCode.B) || isLB() || isRB(); }
+
+    /*
+     * X
+     */
+
+    public static bool isLX() {
+        /* TODO motion controller input */
+        return false;
+    }
+
+    public static bool isRX() {
+        /* TODO motion controller input */
+        return false;
+    }
+
+    public static bool isX() { return Input.GetKey(KeyCode.X) || isLX() || isRX(); }
+
+    /*
+     * Y
+     */
+
+    public static bool isLY() {
+        /* TODO motion controller input */
+        return false;
+    }
+
+    public static bool isRY() {
+        /* TODO motion controller input */
+        return false;
+    }
+
+    public static bool isY() { return Input.GetKey(KeyCode.Y) || isLY() || isRY(); }
+
+    /*
+     * primary/secondary
+     */
 
     public static bool isPrimary() { return isA() || isB(); }
 
     public static bool isSecondary() { return isX() || isY(); }
+
+    /*
+     * quit
+     */
+
+    public static bool isQuit() {
+        return Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Q);
+    }
 }

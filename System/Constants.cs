@@ -4,6 +4,7 @@
  */
 
 public static class Constants {
+    /* commonly used input identifiers */
     public const string MOUSE_X = "Mouse X";
     public const string MOUSE_Y = "Mouse Y";
 }

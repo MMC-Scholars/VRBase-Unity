@@ -8,14 +8,13 @@ using UnityEngine;
  */
 
 public class BaseController : MonoBehaviour, IBaseEntity {
-    public int t;
 
     /**
      * Unity method
      * Called on game start
      */
 
-    void Start() { t = 0; }
+    void Start() {}
 
     /**
      * Unity method
@@ -23,7 +22,9 @@ public class BaseController : MonoBehaviour, IBaseEntity {
      */
 
     void Update() {
-        Debug.Log("t = " + t);
-        t = t + 1;
+        if (BaseInput.isTrigger()) { Debug.Log("Trigger pressed"); }
+        if (BaseInput.isGrip()) { Debug.Log("Grip pressed"); }
+        if (BaseInput.isPrimary()) { Debug.Log("Primary pressed"); }
+        if (BaseInput.isSecondary()) { Debug.Log("Secondary pressed"); }
     }
 }

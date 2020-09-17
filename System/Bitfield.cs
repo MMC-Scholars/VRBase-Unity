@@ -30,6 +30,11 @@ public class Bitfield {
     public void remove(ulong mask) { m_bf &= ~mask; }
 
     /**
+     * Resets all bits to the initial value (0).
+     */
+    public void reset() { m_bf = 0; }
+
+    /**
      * Returns the raw bitfield representation as an int. Should
      * only be used for debugging purposes.
      */

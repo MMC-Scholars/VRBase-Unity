@@ -9,7 +9,13 @@ using UnityEngine;
  */
 
 public class BasePawn : ABaseEntity {
+    // public props
     public float mouseSensitivity = 5.0f;
+
+    // components
+    Camera         m_camera;
+    BaseController m_lController;
+    BaseController m_rController;
 
     /**
      * Unity method
@@ -20,15 +26,12 @@ public class BasePawn : ABaseEntity {
         // lock mouse cursor to the window
         Cursor.lockState = CursorLockMode.Locked;
 
-        // camera component
-        Camera m_camera = gameObject.AddComponent<Camera>();
+        m_camera = gameObject.AddComponent<Camera>();
 
-        // left controller
-        BaseController m_lController = gameObject.AddComponent<BaseController>();
+        m_lController = gameObject.AddComponent<BaseController>();
         m_lController.setHand(Constants.LEFT);
 
-        // right controller
-        BaseController m_rController = gameObject.AddComponent<BaseController>();
+        m_rController = gameObject.AddComponent<BaseController>();
         m_rController.setHand(Constants.RIGHT);
     }
 
@@ -37,7 +40,7 @@ public class BasePawn : ABaseEntity {
      */
 
     void checkQuit() {
-        if (BaseInput.isQuit()) {
+        if (BaseInput.isQuitPressed()) {
             // packaged project
             Application.Quit();
             // editor development
@@ -73,17 +76,6 @@ public class BasePawn : ABaseEntity {
     }
 
     /**
-     * Updates the controllers with corresponding inputs from the pawn
-     */
-
-    void updateControllerInput() {
-        /* if (BaseInput.isTrigger()) { Debug.Log("Trigger pressed"); } */
-        /* if (BaseInput.isGrip()) { Debug.Log("Grip pressed"); } */
-        /* if (BaseInput.isPrimary()) { Debug.Log("Primary pressed"); } */
-        /* if (BaseInput.isSecondary()) { Debug.Log("Secondary pressed"); } */
-    }
-
-    /**
      * Unity method
      * Called on each update frame
      */
@@ -96,6 +88,7 @@ public class BasePawn : ABaseEntity {
         updateCameraOrientation();
 
         // update controller inputs
-        updateControllerInput();
+        m_lController.updateInput();
+        m_rController.updateInput();
     }
 }

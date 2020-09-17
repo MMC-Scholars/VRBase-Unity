@@ -7,6 +7,14 @@
  */
 
 public abstract class ABaseEntity : MonoBehaviour {
-    public void OnUsed(ABaseEntity user) {}
-    public void OffUsed(ABaseEntity user) {}
+    /**
+     * Defines how BaseEntities interact with other
+     * BaseEntities. [user] represents the BaseEntity
+     * that interacted with this entity, and [id]
+     * represents a unique constant string that defines
+     * how the entity was interacted (usually this is the
+     * name of an input button).
+     */
+    public void OnUsed(ABaseEntity user, string id) {}
+    public void OffUsed(ABaseEntity user, string id) {}
 }

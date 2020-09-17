@@ -8,8 +8,14 @@ using UnityEngine;
  * controllers.
  */
 
-public class BasePawn : MonoBehaviour, IBaseEntity {
+public class BasePawn : ABaseEntity {
+    // public props
     public float mouseSensitivity = 5.0f;
+
+    // components
+    Camera         m_camera;
+    BaseController m_lController;
+    BaseController m_rController;
 
     /**
      * Unity method
@@ -20,10 +26,13 @@ public class BasePawn : MonoBehaviour, IBaseEntity {
         // lock mouse cursor to the window
         Cursor.lockState = CursorLockMode.Locked;
 
-        // camera component
-        Camera         m_camera      = gameObject.AddComponent<Camera>();
-        BaseController m_lController = gameObject.AddComponent<BaseController>();
-        BaseController m_rController = gameObject.AddComponent<BaseController>();
+        m_camera = gameObject.AddComponent<Camera>();
+
+        m_lController = gameObject.AddComponent<BaseController>();
+        m_lController.setHand(Constants.LEFT);
+
+        m_rController = gameObject.AddComponent<BaseController>();
+        m_rController.setHand(Constants.RIGHT);
     }
 
     /**
@@ -31,10 +40,7 @@ public class BasePawn : MonoBehaviour, IBaseEntity {
      */
 
     void checkQuit() {
-        bool quitScenario =
-            Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Q);
-
-        if (quitScenario) {
+        if (BaseInput.isQuitPressed()) {
             // packaged project
             Application.Quit();
             // editor development
@@ -80,5 +86,9 @@ public class BasePawn : MonoBehaviour, IBaseEntity {
 
         // update camera rotation
         updateCameraOrientation();
+
+        // update controller inputs
+        m_lController.updateInput();
+        m_rController.updateInput();
     }
 }

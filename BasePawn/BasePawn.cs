@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class BasePawn : ABaseEntity {
     // public props
-    public float mouseSensitivity = 5.0f;
+    public float mouseSensitivityScale = 5.0f;
 
     // components
     Camera         m_camera;
@@ -65,8 +65,8 @@ public class BasePawn : ABaseEntity {
         else if (rotXAxis > 180)
             rotXAxis = 360 - rotXAxis;
 
-        rotXAxis += mouseY * mouseSensitivity;
-        rotYAxis += mouseX * mouseSensitivity;
+        rotXAxis += mouseY * mouseSensitivityScale;
+        rotYAxis += mouseX * mouseSensitivityScale;
 
         // x-axis transform since x axis is "upside down"
         rotXAxis = Mathf.Clamp(rotXAxis, -90, 90) * -1;

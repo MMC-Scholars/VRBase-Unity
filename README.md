@@ -3,7 +3,8 @@ A Unity Virtual Reality library built for faster development.
 
 ## Table of Contents
 1. [Installation](#installation)
-2. [Unity TroubleShooting](#unityTroubleshooting)
+2. [Contributions](#contributions)
+3. [Unity Troubleshooting](#unityTroubleshooting)
 
 ## Installation <a name="installation"></a>
 Simply copy this repository into a folder within a Unity project. To keep files organized,
@@ -15,6 +16,50 @@ a `git submodule`:
 git submodule add https://github.com/MMC-Scholars/VRBase-Unity.git Assets/Scripts/VRBase
 git submodule init
 ```
+
+## Contributions <a name="contributions"></a>
+
+Contributions to this project must follow the conventions we use.
+
+1. [Naming Conventions](#namingConventions)
+2. [Naming Variables and Objects](#namingVariablesAndObjects)
+
+### Naming Conventions <a name="namingConventions"></a>
+
+This project follows the camelcase naming convention when determining the names of 
+all variables and functions. The exceptions to this rule are as follows:
+- Class or Struct names should be in pascalcase (identical to camelcase except 
+  the first letter is capitalized). Special classes such as interfaces or abstract 
+  classes will use a single capital letter at the start of the class name to denote the 
+  type of class (e.g. an interface would be named `IInterfaceName`)
+- Member variables should use the prefix identifier `m_` to denote that it is a 
+  member variable (e.g. a camera component would be named `m_cameraComponent`). 
+  An exception to this rule is public member variables that are exposed to the 
+  editor (e.g. a public mouse sensitivity `float` variable in `BaseController` can simply 
+  be named `mouseSensitivity`)
+- Constant names should be in all capital letters with underscores to separate words 
+  (e.g. a constant string could be named `MY_STRING_CONSTANT`)
+
+### Naming Variables and Objects <a name="namingVariablesAndObjects"></a>
+
+The name of a variable should directly reflect its function and the type of the variable.
+The name should be a combination of adjectives or nouns that give a clear picture of its
+purpose. For example, an integer that counts the number of player deaths could be called
+`playerDeathCount`. Note that the word `Count` indicates that the variable type must be a 
+numerical type. Some common words to represent each type include:
+
+- `int` - count, num
+- `float` - axis, count, percent, scale
+- `bool` - has, is, will
+- `string` - id, identifier, name
+- arrays - arr, list
+
+Functions should be named using verbs, since each function is enacting an action. Similarly,
+functions which return member variables or simple values should be named with `get`, and 
+functions which alter member variables or values should be named with `set`. For example, a
+function that gets the number of player deaths could be called `getPlayerDeathCount()`, and
+a function that sets the active state of an object could be called 
+`setIsObjectActive(bool isActive)`.
 
 ## Unity Troubleshooting <a name = "unityTroubleshooting"></a>
 A list of issues we've encountered with Unity and some potential fixes.

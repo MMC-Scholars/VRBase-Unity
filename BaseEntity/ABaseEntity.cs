@@ -15,6 +15,6 @@ public abstract class ABaseEntity : MonoBehaviour {
      * how the entity was interacted (usually this is the
      * name of an input button).
      */
-    public void OnUsed(ABaseEntity user, string id) {}
-    public void OffUsed(ABaseEntity user, string id) {}
+    public void onUsed(ABaseEntity user, string id) {}
+    public void offUsed(ABaseEntity user, string id) {}
 }

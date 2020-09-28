@@ -7,6 +7,35 @@
  */
 
 public abstract class ABaseEntity : MonoBehaviour {
+
+    /**
+     * Extensible Start pseudo-member. It is meant to be
+     * overriden instead of Start.
+     */
+
+    public virtual void BaseStart() {}
+
+    /**
+     * Unity method
+     * Called on game start
+     */
+
+    void Start() { BaseStart(); }
+
+    /**
+     * Extensible Update pseudo-member. It is meant to be
+     * overriden instead of Update.
+     */
+
+    public virtual void BaseUpdate() {}
+
+    /**
+     * Unity method
+     * Called on game start
+     */
+
+    void Update() { BaseUpdate(); }
+
     /**
      * Defines how BaseEntities interact with other
      * BaseEntities. [user] represents the BaseEntity
@@ -15,6 +44,7 @@ public abstract class ABaseEntity : MonoBehaviour {
      * how the entity was interacted (usually this is the
      * name of an input button).
      */
+
     public void onUsed(ABaseEntity user, string id) {}
     public void offUsed(ABaseEntity user, string id) {}
 }

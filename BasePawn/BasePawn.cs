@@ -33,6 +33,8 @@ public class BasePawn : ABaseEntity {
 
         m_rController = gameObject.AddComponent<BaseController>();
         m_rController.setHand(Constants.RIGHT);
+
+        BaseStart();
     }
 
     /**
@@ -90,5 +92,7 @@ public class BasePawn : ABaseEntity {
         // update controller inputs
         m_lController.updateInput();
         m_rController.updateInput();
+
+        BaseUpdate();
     }
 }

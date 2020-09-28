@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /**
  * A BaseController is a BaseEntity representing a VR motion controller.
@@ -32,7 +30,10 @@ public class BaseController : ABaseEntity {
      * Called on game start
      */
 
-    void Start() { m_bfButtons = new Bitfield(); }
+    void Start() {
+        m_bfButtons = new Bitfield();
+        BaseStart();
+    }
 
     /**
      * Update controller inputs in bitfield. This should ONLY be called
@@ -119,5 +120,7 @@ public class BaseController : ABaseEntity {
 
         // reset bitfield for next update
         m_bfButtons.reset();
+
+        BaseUpdate();
     }
 }

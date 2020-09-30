@@ -10,7 +10,7 @@ public abstract class ABaseEntity : MonoBehaviour {
 
     /**
      * Extensible Start pseudo-member. It is meant to be
-     * overriden instead of Start.
+     * overriden instead of Start and should never be implemented here.
      */
 
     public virtual void BaseStart() {}
@@ -24,7 +24,7 @@ public abstract class ABaseEntity : MonoBehaviour {
 
     /**
      * Extensible Update pseudo-member. It is meant to be
-     * overriden instead of Update.
+     * overriden instead of Update and should never be implemented here.
      */
 
     public virtual void BaseUpdate() {}

@@ -78,6 +78,24 @@ public class BasePawn : ABaseEntity {
     }
 
     /**
+     * Extensible UpdateInput pseudo-member. It is meant to be
+     * overriden instead of UpdateInput and should never be implemented here.
+     */
+
+    public virtual void BaseUpdateInput() {}
+
+    /**
+     * Update controller inputs and call any actions as needed.
+     */
+
+    public void UpdateInput() {
+        // TODO add default pickup/interact behavior
+
+        // call child input updates
+        BaseUpdateInput();
+    }
+
+    /**
      * Unity method
      * Called on each update frame
      */
@@ -89,10 +107,10 @@ public class BasePawn : ABaseEntity {
         // update camera rotation
         updateCameraOrientation();
 
-        // update controller inputs
-        m_lController.updateInput();
-        m_rController.updateInput();
+        // update all input listeners
+        UpdateInput();
 
+        // call child updates
         BaseUpdate();
     }
 }

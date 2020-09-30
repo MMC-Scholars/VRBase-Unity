@@ -13,9 +13,12 @@ public class BasePawn : ABaseEntity {
     public float mouseSensitivityScale = 5.0f;
 
     // components
-    Camera         m_camera;
-    BaseController m_lController;
-    BaseController m_rController;
+    // all components need to be protected so they can be accessed
+    // by their children without being editable in the Unity Inspector
+
+    protected Camera         m_camera;
+    protected BaseController m_lController;
+    protected BaseController m_rController;
 
     /**
      * Unity method
@@ -78,6 +81,24 @@ public class BasePawn : ABaseEntity {
     }
 
     /**
+     * Extensible UpdateInput pseudo-member. It is meant to be
+     * overriden instead of UpdateInput and should never be implemented here.
+     */
+
+    public virtual void BaseUpdateInput() {}
+
+    /**
+     * Update controller inputs and call any actions as needed.
+     */
+
+    public void UpdateInput() {
+        // TODO add default pickup/interact behavior
+
+        // call child input updates
+        BaseUpdateInput();
+    }
+
+    /**
      * Unity method
      * Called on each update frame
      */
@@ -89,10 +110,10 @@ public class BasePawn : ABaseEntity {
         // update camera rotation
         updateCameraOrientation();
 
-        // update controller inputs
-        m_lController.updateInput();
-        m_rController.updateInput();
+        // update all input listeners
+        UpdateInput();
 
+        // call child updates
         BaseUpdate();
     }
 }

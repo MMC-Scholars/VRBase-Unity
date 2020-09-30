@@ -13,9 +13,12 @@ public class BasePawn : ABaseEntity {
     public float mouseSensitivityScale = 5.0f;
 
     // components
-    Camera         m_camera;
-    BaseController m_lController;
-    BaseController m_rController;
+    // all components need to be protected so they can be accessed
+    // by their children without being editable in the Unity Inspector
+
+    protected Camera         m_camera;
+    protected BaseController m_lController;
+    protected BaseController m_rController;
 
     /**
      * Unity method

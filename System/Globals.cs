@@ -7,7 +7,8 @@
  * needed during runtime.
  */
 
-public class Globals {
+public class Globals
+{
     // since members of globals will use the namespace name Globals, we use camel
     // case immediate member names, e.g. usage will be
     // Globals.myProp

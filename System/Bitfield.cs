@@ -3,7 +3,8 @@
  * Each flag corresponds to a unique boolean value.
  */
 
-public class Bitfield {
+public class Bitfield
+{
     private ulong m_bf;
     public Bitfield() { m_bf = 0; }
 
@@ -11,7 +12,7 @@ public class Bitfield {
      * Static method to generate an unsigned numerical value bit shifted
      * [shift] units, or a bitmask.
      */
-    public static ulong mask(int shift) { return ((ulong) 1) << shift; }
+    public static ulong mask(int shift) { return ((ulong)1) << shift; }
 
     /**
      * Applies a bitmask [mask] to the bitfield.
@@ -38,5 +39,5 @@ public class Bitfield {
      * Returns the raw bitfield representation as an int. Should
      * only be used for debugging purposes.
      */
-    public int toInt() { return (int) m_bf; }
+    public int toInt() { return (int)m_bf; }
 }

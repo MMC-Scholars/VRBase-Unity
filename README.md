@@ -4,7 +4,8 @@ A Unity Virtual Reality library built for faster development.
 ## Table of Contents
 1. [Installation](#installation)
 2. [Contributions](#contributions)
-3. [Unity Troubleshooting](#unityTroubleshooting)
+3. [Code Formatting](#codeFormatting)
+4. [Unity Troubleshooting](#unityTroubleshooting)
 
 ## Installation <a name="installation"></a>
 Simply copy this repository into a folder within a Unity project. To keep files organized,
@@ -23,6 +24,7 @@ Contributions to this project must follow the conventions we use.
 
 1. [Naming Conventions](#namingConventions)
 2. [Naming Variables and Objects](#namingVariablesAndObjects)
+3. [Code Formatting](#codeFormatting)
 
 ### Naming Conventions <a name="namingConventions"></a>
 
@@ -60,6 +62,20 @@ functions which alter member variables or values should be named with `set`. For
 function that gets the number of player deaths could be called `getPlayerDeathCount()`, and
 a function that sets the active state of an object could be called 
 `setIsObjectActive(bool isActive)`.
+
+## Code Formatting <a name="codeFormatting"></a>
+
+To keep our codebase consistently styled for maximum readability, we enforce strict code
+formatting using [Omnisharp](http://www.omnisharp.net/).
+
+**If your preferred editor is [Visual Studio Code](https://code.visualstudio.com/):**
+
+  - install the `Omnisharp` extension to install Omnisharp. This can be done by opening VS Code, typing `CTRL-p`, then `ext install omnisharp`. You can also search and install the extension from the extension browser. The extension is usually named `C#`.
+  - To format on save, edit the VS Code setting (`CTRL-SHIFT-p` and search for Open Settings (UI)) for `Format On Save` and set it to true. You will need to restart VS Code.
+
+**If your preferred editor is [Visual Studio](https://visualstudio.microsoft.com/):**
+
+Visual Studio comes out of the box with a predefined C# formatter. You can format each individual file with `CTRL-k CTRL-d`.
 
 ## Unity Troubleshooting <a name = "unityTroubleshooting"></a>
 A list of issues we've encountered with Unity and some potential fixes.

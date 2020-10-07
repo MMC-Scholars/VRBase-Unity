@@ -8,7 +8,8 @@ using UnityEngine;
  * controllers.
  */
 
-public class BasePawn : ABaseEntity {
+public class BasePawn : ABaseEntity
+{
     // public props
     public float mouseSensitivityScale = 5.0f;
 
@@ -16,8 +17,9 @@ public class BasePawn : ABaseEntity {
     // all components need to be protected so they can be accessed
     // by their children without being editable in the Unity Inspector
 
-    protected Camera         m_camera;
+    protected Camera m_camera;
     protected BaseController m_lController;
+
     protected BaseController m_rController;
 
     /**
@@ -25,7 +27,11 @@ public class BasePawn : ABaseEntity {
      * Called on game start
      */
 
-    void Start() {
+    void hello() { Debug.Log("ur mum"); }
+
+    void Start()
+    {
+
         // lock mouse cursor to the window
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -44,8 +50,10 @@ public class BasePawn : ABaseEntity {
      * Close application if requested
      */
 
-    void checkQuit() {
-        if (BaseInput.isQuitPressed()) {
+    void checkQuit()
+    {
+        if (BaseInput.isQuitPressed())
+        {
             // packaged project
             Application.Quit();
             // editor development
@@ -57,7 +65,8 @@ public class BasePawn : ABaseEntity {
      * Updates the orientation of the camera
      */
 
-    void updateCameraOrientation() {
+    void updateCameraOrientation()
+    {
         float mouseX = Input.GetAxisRaw(Constants.MOUSE_X);
         float mouseY = Input.GetAxisRaw(Constants.MOUSE_Y);
 
@@ -85,13 +94,14 @@ public class BasePawn : ABaseEntity {
      * overriden instead of UpdateInput and should never be implemented here.
      */
 
-    public virtual void BaseUpdateInput() {}
+    public virtual void BaseUpdateInput() { }
 
     /**
      * Update controller inputs and call any actions as needed.
      */
 
-    public void UpdateInput() {
+    public void UpdateInput()
+    {
         // TODO add default pickup/interact behavior
 
         // call child input updates
@@ -103,7 +113,8 @@ public class BasePawn : ABaseEntity {
      * Called on each update frame
      */
 
-    void Update() {
+    void Update()
+    {
         // check quit scenario
         checkQuit();
 

@@ -7,38 +7,45 @@ using UnityEngine;
  * All input-related events should be monitored in this class.
  */
 
-public static class BaseInput {
+public static class BaseInput
+{
 
     /*
      * Trigger
      */
 
-    public static bool isLTriggerPressed() {
+    public static bool isLTriggerPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRTriggerPressed() {
+    public static bool isRTriggerPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isTriggerPressed() {
+    public static bool isTriggerPressed()
+    {
         return Input.GetKeyDown(KeyCode.T) || Input.GetMouseButtonDown(0) ||
                isLTriggerPressed() || isRTriggerPressed();
     }
 
-    public static bool isLTriggerReleased() {
+    public static bool isLTriggerReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRTriggerReleased() {
+    public static bool isRTriggerReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isTriggerReleased() {
+    public static bool isTriggerReleased()
+    {
         return Input.GetKeyUp(KeyCode.T) || Input.GetMouseButtonUp(0) ||
                isLTriggerReleased() || isRTriggerReleased();
     }
@@ -47,31 +54,37 @@ public static class BaseInput {
      * Grip
      */
 
-    public static bool isLGripPressed() {
+    public static bool isLGripPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRGripPressed() {
+    public static bool isRGripPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isGripPressed() {
+    public static bool isGripPressed()
+    {
         return Input.GetKeyDown(KeyCode.G) || isLGripPressed() || isRGripPressed();
     }
 
-    public static bool isLGripReleased() {
+    public static bool isLGripReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRGripReleased() {
+    public static bool isRGripReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isGripReleased() {
+    public static bool isGripReleased()
+    {
         return Input.GetKeyUp(KeyCode.G) || isLGripReleased() || isRGripReleased();
     }
 
@@ -79,31 +92,37 @@ public static class BaseInput {
      * A
      */
 
-    public static bool isLAPressed() {
+    public static bool isLAPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRAPressed() {
+    public static bool isRAPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isAPressed() {
+    public static bool isAPressed()
+    {
         return Input.GetKeyDown(KeyCode.A) || isLAPressed() || isRAPressed();
     }
 
-    public static bool isLAReleased() {
+    public static bool isLAReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRAReleased() {
+    public static bool isRAReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isAReleased() {
+    public static bool isAReleased()
+    {
         return Input.GetKeyUp(KeyCode.A) || isLAReleased() || isRAReleased();
     }
 
@@ -111,31 +130,37 @@ public static class BaseInput {
      * B
      */
 
-    public static bool isLBPressed() {
+    public static bool isLBPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRBPressed() {
+    public static bool isRBPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isBPressed() {
+    public static bool isBPressed()
+    {
         return Input.GetKeyDown(KeyCode.B) || isLBPressed() || isRBPressed();
     }
 
-    public static bool isLBReleased() {
+    public static bool isLBReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRBReleased() {
+    public static bool isRBReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isBReleased() {
+    public static bool isBReleased()
+    {
         return Input.GetKeyUp(KeyCode.B) || isLBReleased() || isRBReleased();
     }
 
@@ -143,31 +168,37 @@ public static class BaseInput {
      * X
      */
 
-    public static bool isLXPressed() {
+    public static bool isLXPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRXPressed() {
+    public static bool isRXPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isXPressed() {
+    public static bool isXPressed()
+    {
         return Input.GetKeyDown(KeyCode.X) || isLXPressed() || isRXPressed();
     }
 
-    public static bool isLXReleased() {
+    public static bool isLXReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRXReleased() {
+    public static bool isRXReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isXReleased() {
+    public static bool isXReleased()
+    {
         return Input.GetKeyUp(KeyCode.X) || isLXReleased() || isRXReleased();
     }
 
@@ -175,31 +206,37 @@ public static class BaseInput {
      * Y
      */
 
-    public static bool isLYPressed() {
+    public static bool isLYPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRYPressed() {
+    public static bool isRYPressed()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isYPressed() {
+    public static bool isYPressed()
+    {
         return Input.GetKeyDown(KeyCode.Y) || isLYPressed() || isRYPressed();
     }
 
-    public static bool isLYReleased() {
+    public static bool isLYReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isRYReleased() {
+    public static bool isRYReleased()
+    {
         /* TODO motion controller input */
         return false;
     }
 
-    public static bool isYReleased() {
+    public static bool isYReleased()
+    {
         return Input.GetKeyUp(KeyCode.Y) || isLYReleased() || isRYReleased();
     }
 
@@ -213,7 +250,8 @@ public static class BaseInput {
 
     public static bool isPrimaryReleased() { return isAReleased() || isBReleased(); }
 
-    public static bool isSecondaryReleased() {
+    public static bool isSecondaryReleased()
+    {
         return isXReleased() || isYReleased();
     }
 
@@ -221,7 +259,8 @@ public static class BaseInput {
      * quit
      */
 
-    public static bool isQuitPressed() {
+    public static bool isQuitPressed()
+    {
         return Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Q);
     }
 }

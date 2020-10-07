@@ -5,7 +5,8 @@
  * Two controllers are possessed by BasePawn to represent hands.
  */
 
-public class BaseController : ABaseEntity {
+public class BaseController : ABaseEntity
+{
     // arbitrary assignment - this cannot be null
     private string m_sHand = Constants.LEFT;
 
@@ -14,5 +15,5 @@ public class BaseController : ABaseEntity {
      */
 
     public string getHand() { return m_sHand; }
-    public void   setHand(string hand) { m_sHand = hand; }
+    public void setHand(string hand) { m_sHand = hand; }
 }

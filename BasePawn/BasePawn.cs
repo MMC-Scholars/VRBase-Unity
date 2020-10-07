@@ -27,8 +27,6 @@ public class BasePawn : ABaseEntity
      * Called on game start
      */
 
-    void hello() { Debug.Log("ur mum"); }
-
     void Start()
     {
 

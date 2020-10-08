@@ -3,12 +3,13 @@
  * used throughout VRBase.
  */
 
-public static class Constants {
+public static class Constants
+{
     /* commonly used input identifiers */
     public const string MOUSE_X = "Mouse X";
     public const string MOUSE_Y = "Mouse Y";
     /* hands */
-    public const string LEFT  = "LEFT";
+    public const string LEFT = "LEFT";
     public const string RIGHT = "RIGHT";
     /*
      * BaseEntity used ids. Format should be WITH_identifier,

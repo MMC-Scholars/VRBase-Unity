@@ -6,14 +6,15 @@
  * interface for other entities to expand.
  */
 
-public abstract class ABaseEntity : MonoBehaviour {
+public abstract class ABaseEntity : MonoBehaviour
+{
 
     /**
      * Extensible Start pseudo-member. It is meant to be
      * overriden instead of Start and should never be implemented here.
      */
 
-    public virtual void BaseStart() {}
+    public virtual void BaseStart() { }
 
     /**
      * Unity method
@@ -27,7 +28,7 @@ public abstract class ABaseEntity : MonoBehaviour {
      * overriden instead of Update and should never be implemented here.
      */
 
-    public virtual void BaseUpdate() {}
+    public virtual void BaseUpdate() { }
 
     /**
      * Unity method
@@ -45,6 +46,6 @@ public abstract class ABaseEntity : MonoBehaviour {
      * name of an input button).
      */
 
-    public void onUsed(ABaseEntity user, string id) {}
-    public void offUsed(ABaseEntity user, string id) {}
+    public void onUsed(ABaseEntity user, string id) { }
+    public void offUsed(ABaseEntity user, string id) { }
 }
